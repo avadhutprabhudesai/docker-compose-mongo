@@ -1,20 +1,5 @@
 const { faker } = require("@faker-js/faker");
 
-/**
- * Types
- *    string
- *    number
- *    boolean
- *    date
- *    time
- *    array
- *      number
- *      string
- *      object
- *    object
- *
- */
-
 const cuisines = [
   "Thai",
   "Continental",
