@@ -15,9 +15,9 @@ const arrayEmbeddedDocs = require("./array-embedded-docs");
  */
 
 const query = ({ laureates, nobels, restaurants, students, profiles }) => {
-  // structure(laureates);
-  // embedded(restaurants);
-  // arrays(students);
+  structure(laureates);
+  embedded(restaurants);
+  arrays(students);
   arrayEmbeddedDocs(profiles);
 };
 
