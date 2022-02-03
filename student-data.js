@@ -39,6 +39,7 @@ function createStudents(count) {
           faker.datatype.number({ min: 10, max: 100 }),
           faker.datatype.number({ min: 10, max: 100 }),
         ],
+        SAT: null,
       };
     });
 }
