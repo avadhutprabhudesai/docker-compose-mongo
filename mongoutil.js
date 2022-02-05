@@ -4,6 +4,7 @@ const { createStudents } = require("./student-data");
 const { createProfiles } = require("./profile-data");
 const laureatesData = require("./laurets");
 const nobelsData = require("./nobels");
+const positionsData = require("./positions");
 
 console.log("=================== Node started ==================");
 
@@ -11,7 +12,7 @@ const URL = "mongodb://mongodb:27017";
 
 const client = new MongoClient(URL);
 
-let testdb, restaurants, students, laureates, nobels, addressBook;
+let testdb, restaurants, students, laureates, nobels, addressBook, positions;
 
 const initDB = async () => {
   try {
@@ -23,6 +24,7 @@ const initDB = async () => {
     students = testdb.collection("students");
     laureates = testdb.collection("laureates");
     nobels = testdb.collection("nobels");
+    positions = testdb.collection("positions");
     profiles = testdb.collection("profiles");
     addressBook = testdb.collection("addressBook");
 
@@ -42,6 +44,11 @@ const initDB = async () => {
     if (!(await nobels?.estimatedDocumentCount())) {
       console.log("Inserting nobel prizes...");
       await nobels.insertMany(nobelsData);
+    }
+
+    if (!(await positions?.estimatedDocumentCount())) {
+      console.log("Inserting positions...");
+      await positions.insertMany(positionsData);
     }
 
     if (!(await profiles?.estimatedDocumentCount())) {
@@ -71,6 +78,7 @@ const initDB = async () => {
       students,
       laureates,
       nobels,
+      positions,
       profiles,
       addressBook,
     };
